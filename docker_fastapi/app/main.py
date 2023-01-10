@@ -2,6 +2,7 @@ from typing import List, Dict
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+import time
 
 from . import crud, models, schemas
 from .database import SessionLocal, engine
@@ -43,3 +44,8 @@ def get_user_by_id(user_id: int, db: Session = Depends(get_db)):
 @app.post("/users/", response_model=List[schemas.UserData])
 async def get_users(db: Session = Depends(get_db)):
     return crud.get_all_users(db=db)
+
+@app.get("/sleep/")
+async def root():
+    sleep.time(660)
+    return {"message": "Hello World this is my new API!"}
