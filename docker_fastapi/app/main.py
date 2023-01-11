@@ -2,7 +2,7 @@ from typing import List, Dict
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-import time
+import asyncio
 
 from . import crud, models, schemas
 from .database import SessionLocal, engine
@@ -46,6 +46,6 @@ async def get_users(db: Session = Depends(get_db)):
     return crud.get_all_users(db=db)
 
 @app.get("/sleep/")
-def root():
-    sleep.time(660)
+async def root():
+    await asyncio.sleep(660)
     return {"message": "Hello World this is my new API!"}
