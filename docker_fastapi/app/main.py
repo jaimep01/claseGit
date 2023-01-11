@@ -46,6 +46,6 @@ async def get_users(db: Session = Depends(get_db)):
     return crud.get_all_users(db=db)
 
 @app.get("/sleep/")
-async def root():
+def root():
     sleep.time(660)
     return {"message": "Hello World this is my new API!"}
