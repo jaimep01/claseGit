@@ -54,4 +54,6 @@ async def root():
 @app.get("/env")
 async def root():
     await asyncio.sleep(660)
-    return {"message": for k, v in os.environ.items(): print(f'{k}={v}')}
+    home_dir =os.environ['HOSTNAME']
+    username = os.environ['USER']
+    return {"message": f""}
