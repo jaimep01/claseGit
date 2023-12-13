@@ -3,6 +3,7 @@ from typing import List, Dict
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 import asyncio
+import os 
 
 from . import crud, models, schemas
 from .database import SessionLocal, engine
@@ -49,3 +50,8 @@ async def get_users(db: Session = Depends(get_db)):
 async def root():
     await asyncio.sleep(660)
     return {"message": "Hello World this is my new API!"}
+
+@app.get("/env")
+async def root():
+    await asyncio.sleep(660)
+    return {"message": for k, v in os.environ.items(): print(f'{k}={v}')}
