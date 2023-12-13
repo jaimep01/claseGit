@@ -42,17 +42,17 @@ def get_user_by_id(user_id: int, db: Session = Depends(get_db)):
     return crud.get_user(db=db, user_id=user_id)
 
 
-@app.post("/users/", response_model=List[schemas.UserData])
+@app.get("/users/", response_model=List[schemas.UserData])
 async def get_users(db: Session = Depends(get_db)):
     return crud.get_all_users(db=db)
 
 @app.get("/sleep/")
 async def root():
     await asyncio.sleep(660)
-    return {"message": "Hello World this is my new API!"}
+    return {"message": "Hello World this is my new API sleeping!"}
 
 @app.get("/env")
 async def root():
     await asyncio.sleep(660)
-    pod_ip =os.environ['POD_IP']
+    pod_ip =os.environ['ASM_INGRESSGATEWAY_PORT_443_TCP_ADDR']
     return {"message": f"Hello! my pod IP is: {pod_ip}"}
