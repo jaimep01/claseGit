@@ -54,6 +54,5 @@ async def root():
 @app.get("/env")
 async def root():
     await asyncio.sleep(660)
-    home_dir =os.environ['HOSTNAME']
-    username = os.environ['USER']
-    return {"message": f""}
+    pod_ip =os.environ['POD_IP']
+    return {"message": f"Hello! my pod IP is: {pod_ip}"}
