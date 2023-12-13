@@ -4,7 +4,9 @@ WORKDIR /code
 
 COPY ./requirments.txt /code/requirments.txt
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirments.txt ; export POD_IP=$(hostname -I | awk '{print $1}');
+RUN pip install --no-cache-dir --upgrade -r /code/requirments.txt
+
+RUN [ "bash", "-c", "export POD_IP=$(hostname -I | awk '{print $1}')"]
 
 COPY ./app /code/app
 
