@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.13
 
 WORKDIR /code
 
@@ -10,4 +10,4 @@ RUN [ "bash", "-c", "export POD_IP=$(hostname -I | awk '{print $1}')"]
 
 COPY ./app /code/app
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

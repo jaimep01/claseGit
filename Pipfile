@@ -4,21 +4,21 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "==0.79.0"
-uvicorn = "==0.18.2"
-anyio = "==3.6.1"
-click = "==8.1.3"
-h11 = "==0.13.0"
-idna = "==3.3"
-pydantic = "==1.9.1"
-sniffio = "==1.2.0"
-starlette = "==0.19.1"
-typing-extensions = "==4.3.0"
+anyio = "*"
+click = "*"
+h11 = "*"
+idna = "*"
+pydantic = "*"
+sniffio = "*"
+starlette = "*"
+typing-extensions = "*"
 mysql-connector-python = "*"
 sqlalchemy = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+fastapi = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 black = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "*"
