@@ -16,6 +16,7 @@ mysql-connector-python = "*"
 sqlalchemy = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 fastapi = {extras = ["standard"], version = "*"}
+requests = "*"
 
 [dev-packages]
 black = "*"
